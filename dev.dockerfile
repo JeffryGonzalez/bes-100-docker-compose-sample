@@ -5,5 +5,7 @@ COPY . /app
 WORKDIR /app
 RUN dotnet restore
 RUN dotnet build
+RUN dotnet tool restore
 EXPOSE 5000
-ENTRYPOINT [ "dotnet", "watch", "run" ]
+RUN chmod +x ./entrypoint.sh
+CMD /bin/bash ./entrypoint.sh

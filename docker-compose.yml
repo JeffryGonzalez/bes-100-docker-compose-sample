@@ -13,6 +13,12 @@ services:
         build:
             context: .
             dockerfile: dev.dockerfile
+        environment: 
+            # make sure there are two underscores between 
+            # also you need to set this to do the migration.
+            # set "ConnectionStrings__default=Server=the-production-database-server; Database=DbContextFactorySample2; Trusted_Connection=True;"
+            # powershell: $env:SiteName = 'tachytelic.net'
+            - ConnectionStrings__db=server=sql;database=books;user id=SA;password=Tokyo!_Joe1433
         ports: 
             - "5000:5000"
         networks:
